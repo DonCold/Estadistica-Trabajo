@@ -52,51 +52,40 @@ function estanciarDatos(datos){
         pregunta3.push(datos[i][2]);
     }
 
-    let txt = pregunta3+"<br>"+"<strong>Total de Respuestas: "+pregunta1.length+"</strong>";
+    let txt = "<strong>Total de Respuestas: "+pregunta1.length+"</strong>";
     app.innerHTML = txt;
 
     /* IMPRIMIENDO GRAFICAS ===================================================== */
 
     let ctx = document.getElementById("myChart").getContext("2d");
-    let opciones = ["Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"];
     let tipo = "bar";
-    let color = ["red", "blue", "yellow", "green"];
-    opcionMultiple(ctx, tipo, opciones, datos[0][0], pregunta1, color, "Pregunta 1");
+    opcionMultiple(ctx, tipo, datos[0][0], pregunta1);
 
     ctx = document.getElementById("chart").getContext("2d");
-    opciones = ["Seleccion 1", "Seleccion 2", "Seleccion 3", "Seleccion 4"];
     tipo = "pie";
-    opcionMultiple(ctx, tipo, opciones, datos[0][1], pregunta2, color, datos[0][1]);
+    opcionMultiple(ctx, tipo, datos[0][1], pregunta2);
+
+    ctx = document.getElementById("edad").getContext("2d");
+    tipo = "bar";
+    opcionMultiple(ctx, tipo, datos[0][2], pregunta3);
 }
 
-function color(color){
-    var colorr = Chart.helpers.color;
-    let a = colorr(color[0]).alpha(0.5).rgbString();
-    let b = colorr(color[1]).alpha(0.5).rgbString();
-    let c = colorr(color[2]).alpha(0.5).rgbString();
-    let d = colorr(color[3]).alpha(0.5).rgbString();
-    return [a,b,c,d];
-}
-
-function opcionMultiple(ctx, tipo, opciones, titulo, datos, colorr, pregunta){
-    var a = 0;
-    var b = 0;
-    var c = 0;
-    var d = 0;
+function opcionMultiple(ctx, tipo, titulo, datos){
     let opcion;
+    var opciones = [];
+    var eleccion = [];
 
     for(let i=0;i<datos.length;i++){
-        if(datos[i]==1){
-            a++;
+        if(opciones.indexOf(datos[i]) == -1){
+            opciones.push(datos[i]);
+            eleccion.push(0);
         }
-        if(datos[i]==2){
-            b++;
-        }
-        if(datos[i]==3){
-            c++;
-        }
-        if(datos[i]==4){
-            d++;
+    }
+    opciones = opciones.sort();
+
+    for(let i=0;i<datos.length;i++){
+        if(opciones.indexOf(datos[i]) != -1){
+            eleccion[opciones.indexOf(datos[i])]++;
         }
     }
 
@@ -105,7 +94,7 @@ function opcionMultiple(ctx, tipo, opciones, titulo, datos, colorr, pregunta){
             responsive: true,
             title: {
                 display: true,
-                text: pregunta,
+                text: titulo,
                 fontSize: 15,
                 padding: 30,
                 fontColor: "#121212"
@@ -116,7 +105,7 @@ function opcionMultiple(ctx, tipo, opciones, titulo, datos, colorr, pregunta){
             responsive: true,
             title: {
                 display: true,
-                text: pregunta,
+                text: titulo,
                 fontSize: 15,
                 padding: 30,
                 fontColor: "#121212"
@@ -138,10 +127,9 @@ function opcionMultiple(ctx, tipo, opciones, titulo, datos, colorr, pregunta){
             datasets: [
                 {
                     label: titulo,
-                    backgroundColor: color(colorr),
-                    borderColor: colorr,
-                    borderWidth: 1,
-                    data: [a, b, c, d],
+                    backgroundColor: color(opciones.length),
+                    borderWidth: 2,
+                    data: eleccion,
                 }
             ]
         },
