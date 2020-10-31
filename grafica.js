@@ -19,32 +19,43 @@ function leerCsv(texto, separador = ",", omitirEncabezado=false) {
 }
 
 function estanciarDatos(datos){
+    /* app es solo para debuggear el codigo */
     let app = document.getElementById("app");
-
-    for(let i=0;i<datos.length;i++){
-        datos[i].shift();
-    }
-
     let pregunta1 = [];
     let pregunta2 = [];
     let pregunta3 = [];
     let memoria = 0;
 
+    /* Quitamos el primer valor de cada arreglo ya que no es necesario */
+    for(let i=0;i<datos.length;i++){
+        datos[i].shift();
+    }
+
+    /* Quitamos las comillas que venian por defecto en el titulo */
+    for(let i=0;i<datos[0].length;i++){
+        datos[0][i] = datos[0][i].replaceAll('"', "");
+    }
+
+    /* limpiamos, separamos datos y los colocamos en un vector */
     for(let i=1;i<datos.length;i++){
         memoria = (datos[i][0].split("Opción ").pop()).split('"').shift();
         pregunta1.push(memoria);
     }
+    /* limpiamos, separamos datos y los colocamos en un vector */
     for(let i=1;i<datos.length;i++){
         memoria = (datos[i][1].split("Opción ").pop()).split('"').shift();
         pregunta2.push(memoria);
     }
+    /* colocamos los datos en un vector y quitamos las comillas */
     for(let i=1;i<datos.length;i++){
+        datos[i][2] = datos[i][2].replaceAll('"', "");
         pregunta3.push(datos[i][2]);
     }
 
-    let txt = datos[0]+"<br>"+pregunta3+"<br>";
-
+    let txt = pregunta3+"<br>"+"<strong>Total de Respuestas: "+pregunta1.length+"</strong>";
     app.innerHTML = txt;
+
+    /* IMPRIMIENDO GRAFICAS ===================================================== */
 
     let ctx = document.getElementById("myChart").getContext("2d");
     let opciones = ["Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"];
@@ -72,6 +83,7 @@ function opcionMultiple(ctx, tipo, opciones, titulo, datos, colorr, pregunta){
     var b = 0;
     var c = 0;
     var d = 0;
+    let opcion;
 
     for(let i=0;i<datos.length;i++){
         if(datos[i]==1){
@@ -89,63 +101,50 @@ function opcionMultiple(ctx, tipo, opciones, titulo, datos, colorr, pregunta){
     }
 
     if(tipo == "pie"){
-        const chart = new Chart(ctx, {
-            type: tipo,
-            data: {
-                labels: opciones,
-                datasets: [
-                    {
-                        label: titulo,
-                        backgroundColor: color(colorr),
-                        borderColor: colorr,
-                        borderWidth: 1,
-                        data: [a, b, c, d],
-                    }
-                ]
+        opcion = {
+            responsive: true,
+            title: {
+                display: true,
+                text: pregunta,
+                fontSize: 15,
+                padding: 30,
+                fontColor: "#121212"
             },
-            options:{
-                responsive: true,
-                title: {
-                    display: true,
-                    text: pregunta,
-                    fontSize: 15,
-                    padding: 30,
-                    fontColor: "#121212"
-                },
-            }
-        });
+        }
     } else{
-        const chart = new Chart(ctx, {
-            type: tipo,
-            data: {
-                labels: opciones,
-                datasets: [
-                    {
-                        label: titulo,
-                        backgroundColor: color(colorr),
-                        borderColor: colorr,
-                        borderWidth: 1,
-                        data: [a, b, c, d],
-                    }
-                ]
+        opcion = {
+            responsive: true,
+            title: {
+                display: true,
+                text: pregunta,
+                fontSize: 15,
+                padding: 30,
+                fontColor: "#121212"
             },
-            options:{
-                responsive: true,
-                title: {
-                    display: true,
-                    text: pregunta,
-                    fontSize: 15,
-                    padding: 30,
-                    fontColor: "#121212"
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
-        });
+        }
     }
+
+    const chart = new Chart(ctx, {
+        type: tipo,
+        data: {
+            labels: opciones,
+            datasets: [
+                {
+                    label: titulo,
+                    backgroundColor: color(colorr),
+                    borderColor: colorr,
+                    borderWidth: 1,
+                    data: [a, b, c, d],
+                }
+            ]
+        },
+        options: opcion,
+    });
 }
