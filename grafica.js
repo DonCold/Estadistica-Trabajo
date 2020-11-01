@@ -52,6 +52,9 @@ function estanciarDatos(datos){
         pregunta3.push(datos[i][2]);
     }
 
+    const math = document.getElementById("app");
+    math.innerHTML = "$$   \\frac{\\sqrt{s+6}}{\\sqrt{s+6}}  $$";
+
     /* IMPRIMIENDO GRAFICAS ===================================================== */
 
     let ctx = document.getElementById("myChart").getContext("2d");
