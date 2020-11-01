@@ -27,6 +27,8 @@ function convertirNumInt(numeros){
     return numeros;
 }
 
+
+
 /* LATEX */
 
 function media(ctx, datos){

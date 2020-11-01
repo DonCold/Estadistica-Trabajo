@@ -9,6 +9,7 @@ window.onload = function (){
 function estanciarDatos(datos){
     let pregunta = [];
     let respuesta = [];
+    let respuestaEnNumeros = [];
 
     /* Limpia los datos, quita comillas dobles y dato no necesario */
     for(let i=0;i<datos.length;i++){
@@ -35,6 +36,10 @@ function estanciarDatos(datos){
         arrayMemoria = [];
     }
 
+    /* Conversion Normal a  Numeros */
+    respuesta[1] = convertirNumInt(respuesta[1]);
+    respuesta[6] = convertirNumInt(respuesta[6]);
+
     /* Imprimiendo Respuestas */
     /* let txt = "";
     for(let i=0;i<respuesta.length;i++){
@@ -44,15 +49,37 @@ function estanciarDatos(datos){
     const app = document.getElementById("app");
     app.innerHTML = txt; */
 
-    respuesta[1] = convertirNumInt(respuesta[1]);
-    respuesta[6] = convertirNumInt(respuesta[6]);
-
     console.log(pregunta);
     console.log(respuesta);
+    console.log(respuestaEnNumeros);
 
     let ctx = "genero";
     let tipo = "bar";
     opcionMultiple(ctx, tipo, pregunta[0], respuesta[0]);
+
+    ctx = "edad";
+    tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[1], respuesta[1]);
+
+    ctx = "consideracion";
+    tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[2], respuesta[2]);
+
+    ctx = "cantidad";
+    tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[3], respuesta[3]);
+
+    ctx = "entreComidas";
+    tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[4], respuesta[4]);
+
+    ctx = "frecuenciaAlimento";
+    tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[5], respuesta[5]);
+
+    ctx = "frecuenciaBebida";
+    tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[6], respuesta[6]);
 }
 
 function opcionMultiple(ctx, tipo, titulo, datos){
@@ -60,6 +87,7 @@ function opcionMultiple(ctx, tipo, titulo, datos){
     var opciones = [];
     var eleccion = [];
 
+    /* Creamos 2 listas los datos no repetidos */
     for(let i=0;i<datos.length;i++){
         if(opciones.indexOf(datos[i]) == -1){
             opciones.push(datos[i]);
@@ -68,12 +96,14 @@ function opcionMultiple(ctx, tipo, titulo, datos){
     }
     opciones = opciones.sort();
 
+    /* Aumentamos la suma de cada posicion para mirar los datos que se repiten */
     for(let i=0;i<datos.length;i++){
         if(opciones.indexOf(datos[i]) != -1){
             eleccion[opciones.indexOf(datos[i])]++;
         }
     }
 
+    /* Asigamos las opciones de la grafica */
     if(tipo == "pie" || tipo == "doughnut"){
         opcion = {
             responsive: true,
@@ -123,8 +153,9 @@ function opcionMultiple(ctx, tipo, titulo, datos){
         }
     }
 
-    ctx = document.getElementById(ctx).getContext("2d");
-    const chart = new Chart(ctx, {
+    /* Graficamos */
+    let ctxx = document.getElementById(ctx).getContext("2d");
+    const chart = new Chart(ctxx, {
         type: tipo,
         data: {
             labels: opciones,

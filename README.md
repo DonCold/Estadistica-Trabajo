@@ -6,3 +6,8 @@ Incluye
 - Ajax
 - MathJax
 - ChartJs
+
+> *Realizado por* *[LuisFOsG][1]*
+
+[1]: https://github.com/LuisFOsG
+
