@@ -10,6 +10,8 @@ function estanciarDatos(datos){
     let pregunta = [];
     let respuesta = [];
     let respuestaEnNumeros = [];
+    let ctx = "";
+    let tipo = "";
 
     /* Limpia los datos, quita comillas dobles y dato no necesario */
     for(let i=0;i<datos.length;i++){
@@ -53,32 +55,53 @@ function estanciarDatos(datos){
     console.log(respuesta);
     console.log(respuestaEnNumeros);
 
-    let ctx = "genero";
-    let tipo = "bar";
+    ctx = "genero";
+    tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[0], respuesta[0]);
+    ctx = "generoPor";
+    tipo = "pie";
     opcionMultiple(ctx, tipo, pregunta[0], respuesta[0]);
 
     ctx = "edad";
     tipo = "bar";
     opcionMultiple(ctx, tipo, pregunta[1], respuesta[1]);
+    ctx = "edadPor";
+    tipo = "pie";
+    opcionMultiple(ctx, tipo, pregunta[1], respuesta[1]);
 
     ctx = "consideracion";
     tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[2], respuesta[2]);
+    ctx = "consideracionPor";
+    tipo = "pie";
     opcionMultiple(ctx, tipo, pregunta[2], respuesta[2]);
 
     ctx = "cantidad";
     tipo = "bar";
     opcionMultiple(ctx, tipo, pregunta[3], respuesta[3]);
+    ctx = "cantidadPor";
+    tipo = "pie";
+    opcionMultiple(ctx, tipo, pregunta[3], respuesta[3]);
 
     ctx = "entreComidas";
     tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[4], respuesta[4]);
+    ctx = "entreComidasPor";
+    tipo = "pie";
     opcionMultiple(ctx, tipo, pregunta[4], respuesta[4]);
 
     ctx = "frecuenciaAlimento";
     tipo = "bar";
     opcionMultiple(ctx, tipo, pregunta[5], respuesta[5]);
+    ctx = "frecuenciaAlimentoPor";
+    tipo = "pie";
+    opcionMultiple(ctx, tipo, pregunta[5], respuesta[5]);
 
     ctx = "frecuenciaBebida";
     tipo = "bar";
+    opcionMultiple(ctx, tipo, pregunta[6], respuesta[6]);
+    ctx = "frecuenciaBebidaPor";
+    tipo = "pie";
     opcionMultiple(ctx, tipo, pregunta[6], respuesta[6]);
 }
 
