@@ -42,14 +42,9 @@ function estanciarDatos(datos){
     respuesta[1] = convertirNumInt(respuesta[1]);
     respuesta[6] = convertirNumInt(respuesta[6]);
 
-    /* Imprimiendo Respuestas */
-    /* let txt = "";
-    for(let i=0;i<respuesta.length;i++){
-        txt += respuesta[i];
-        txt += "<br>";
-    }
-    const app = document.getElementById("app");
-    app.innerHTML = txt; */
+    /* Imprimiendo Respuestas ======================================================================================== */
+    const nums = document.getElementById("nums");
+    nums.innerHTML = "Respuestas Totales: "+(datos.length-1);
 
     console.log(pregunta);
     console.log(respuesta);
