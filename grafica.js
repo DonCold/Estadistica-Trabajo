@@ -19,8 +19,6 @@ function leerCsv(texto, separador = ",", omitirEncabezado=false) {
 }
 
 function estanciarDatos(datos){
-    /* app es solo para debuggear el codigo */
-    let app = document.getElementById("app");
     let pregunta1 = [];
     let pregunta2 = [];
     let pregunta3 = [];
@@ -52,9 +50,6 @@ function estanciarDatos(datos){
         pregunta3.push(datos[i][2]);
     }
 
-    const math = document.getElementById("app");
-    math.innerHTML = "$$   \\frac{\\sqrt{s+6}}{\\sqrt{s+6}}  $$";
-
     /* IMPRIMIENDO GRAFICAS ===================================================== */
 
     let ctx = document.getElementById("myChart").getContext("2d");
@@ -68,6 +63,34 @@ function estanciarDatos(datos){
     ctx = document.getElementById("edad").getContext("2d");
     tipo = "bar";
     opcionMultiple(ctx, tipo, datos[0][2], pregunta3);
+
+    media("media", pregunta1);
+    media("media1", pregunta2);
+    media("media2", pregunta3);
+}
+
+function media(ctx, datos){
+    let suma = 0;
+    let resultado = "$$ \\overline{x} = \\frac{";
+    let final = "}  $$";
+
+    for(let i=0;i<datos.length;i++){
+        resultado += datos[i].toString();
+        suma += parseInt(datos[i]);
+        if(i<datos.length-1){
+            resultado += "+";
+        }else{
+            resultado += "}{"+datos.length;
+        }
+    }
+    suma = suma/datos.length;
+    resultado += final;
+    resultado += "$$ \\overline{x} = ";
+    resultado += suma;
+    resultado += "  $$";
+
+    const math = document.getElementById(ctx);
+    math.innerHTML = resultado;
 }
 
 function opcionMultiple(ctx, tipo, titulo, datos){
