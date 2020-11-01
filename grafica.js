@@ -22,6 +22,7 @@ function estanciarDatos(datos){
     let pregunta1 = [];
     let pregunta2 = [];
     let pregunta3 = [];
+    let pregunta4 = [];
     let memoria = 0;
 
     /* Quitamos el primer valor de cada arreglo ya que no es necesario */
@@ -49,6 +50,11 @@ function estanciarDatos(datos){
         datos[i][2] = datos[i][2].replaceAll('"', "");
         pregunta3.push(datos[i][2]);
     }
+    /* colocamos los datos en un vector y quitamos las comillas */
+    for(let i=1;i<datos.length;i++){
+        datos[i][3] = datos[i][3].replaceAll('"', "");
+        pregunta4.push(datos[i][3]);
+    }
 
     /* IMPRIMIENDO GRAFICAS ===================================================== */
 
@@ -57,12 +63,16 @@ function estanciarDatos(datos){
     opcionMultiple(ctx, tipo, datos[0][0], pregunta1);
 
     ctx = document.getElementById("chart").getContext("2d");
-    tipo = "pie";
+    tipo = "doughnut";
     opcionMultiple(ctx, tipo, datos[0][1], pregunta2);
 
     ctx = document.getElementById("edad").getContext("2d");
     tipo = "bar";
     opcionMultiple(ctx, tipo, datos[0][2], pregunta3);
+
+    ctx = document.getElementById("hambre").getContext("2d");
+    tipo = "pie";
+    opcionMultiple(ctx, tipo, datos[0][3], pregunta4);
 
     media("media", pregunta1);
     media("media1", pregunta2);
@@ -112,7 +122,7 @@ function opcionMultiple(ctx, tipo, titulo, datos){
         }
     }
 
-    if(tipo == "pie"){
+    if(tipo == "pie" || tipo == "doughnut"){
         opcion = {
             responsive: true,
             title: {
@@ -122,6 +132,24 @@ function opcionMultiple(ctx, tipo, titulo, datos){
                 padding: 30,
                 fontColor: "#121212"
             },
+            tooltips: {
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    //get the concerned dataset
+                    var dataset = data.datasets[tooltipItem.datasetIndex];
+                    //calculate the total of this data set
+                    var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                      return previousValue + currentValue;
+                    });
+                    //get the current items value
+                    var currentValue = dataset.data[tooltipItem.index];
+                    //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                    var precentage = Math.floor(((currentValue/total) * 100)+0.5);
+
+                    return precentage + "%";
+                  }
+                }
+           }
         }
     } else{
         opcion = {
