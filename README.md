@@ -4,3 +4,5 @@ Incluye
 - Materialize
 - JQuery
 - Ajax
+- MathJax
+- ChartJs

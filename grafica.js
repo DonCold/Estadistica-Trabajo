@@ -52,9 +52,6 @@ function estanciarDatos(datos){
         pregunta3.push(datos[i][2]);
     }
 
-    let txt = "<strong>Total de Respuestas: "+pregunta1.length+"</strong>";
-    app.innerHTML = txt;
-
     /* IMPRIMIENDO GRAFICAS ===================================================== */
 
     let ctx = document.getElementById("myChart").getContext("2d");

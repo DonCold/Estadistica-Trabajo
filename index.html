@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <script src="jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Encuesta</title>
 </head>
+
 <script src="grafica.js"></script>
 <script src="colores.js"></script>
+<script>
+    MathJax = {
+        loader: {load: ['input/asciimath', 'output/chtml']}
+    }
+</script>
 
 <body>
-    <div id="app"></div>
     <div class="row">
         <div class="col s6">
             <canvas id="myChart"></canvas>
@@ -19,18 +26,28 @@
         <div class="col s6">
             <canvas id="chart"></canvas>
         </div>
+        <div class="col s6">
+            <canvas id="edad"></canvas>
+        </div>
+        <div class="col s6">
+            <div id="app">
+                \[ \frac{-b\pm\sqrt{b^2-4ac}}{2a} \]
+            </div>
+        </div>
     </div>
-    <canvas id="edad"></canvas>
 </body>
 
 <script>
     window.onload = function (){
         $.ajax({
-            url: "form.csv",
+            url: "Form.csv",
             dataType: "text",
             contentType: "charset-utf-8",
         }).done(ajustarDatos);
     }
 </script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- MathJax -->
+<script type="text/javascript" src="https://www.hostmath.com/Math/MathJax.js?config=OK"></script>
 </html>
