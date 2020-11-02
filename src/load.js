@@ -4,12 +4,16 @@ let numrespuestasMujeres = 0;
 let numNoespecificados = 0;
 
 let pregunta = [];
+
 let respuesta = [];
 let respuestaEnNumeros = [];
 
 let respuestaHombres = [];
 let respuestaMujeres = [];
 let respuestaNoespecifico = [];
+let respuestaHombresNumeros = [];
+let respuestaMujeresNumeros = [];
+let respuestaNoespecificoNumeros = [];
 
 let Agraficar = false;
 let Acalcular = false;
@@ -155,6 +159,15 @@ function estanciarDatos(datos){
 
     for(let i=0;i<respuesta.length;i++){
         respuestaEnNumeros.push(convertirANumero(respuesta[i]));
+    }
+    for(let i=0;i<respuestaHombres.length;i++){
+        respuestaHombresNumeros.push(convertirANumero(respuestaHombres[i]));
+    }
+    for(let i=0;i<respuestaMujeres.length;i++){
+        respuestaMujeresNumeros.push(convertirANumero(respuestaMujeres[i]));
+    }
+    for(let i=0;i<respuestaNoespecifico.length;i++){
+        respuestaNoespecificoNumeros.push(convertirANumero(respuestaNoespecifico[i]));
     }
 
     /* Imprimiendo Respuestas ======================================================================================== */

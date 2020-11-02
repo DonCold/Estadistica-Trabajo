@@ -8,8 +8,8 @@ function graficar(){
     let tipo = "";
 
     console.log(pregunta);
-    console.log(respuesta);
-    console.log(respuestaEnNumeros);
+    console.log(respuestaMujeres);
+    console.log(respuestaMujeresNumeros);
 
     ctx = "edad";
     tipo = "bar";
