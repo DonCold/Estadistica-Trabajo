@@ -1,50 +1,8 @@
-window.onload = function (){
-    $.ajax({
-        url: "Encuesta.csv",
-        dataType: "text",
-        contentType: "charset-utf-8",
-    }).done(ajustarDatos);
-}
+Agraficar = true;
 
-function estanciarDatos(datos){
-    let pregunta = [];
-    let respuesta = [];
-    let respuestaEnNumeros = [];
+function graficar(){
     let ctx = "";
     let tipo = "";
-
-    /* Limpia los datos, quita comillas dobles y dato no necesario */
-    for(let i=0;i<datos.length;i++){
-        datos[i].shift();
-    }
-    for(let i=0;i<datos.length;i++){
-        for(let j=0;j<datos[i].length;j++){
-            datos[i][j] = datos[i][j].replaceAll('"', "");
-        }
-    }
-
-    /* Ingresa todas las preguntas en un array */
-    for(let i=0; i<datos[0].length; i++){
-        pregunta.push(datos[0][i]);
-    }
-
-    /* Cada respuesta queda en un array */
-    let arrayMemoria = [];
-    for(let i=0; i<datos[1].length; i++){
-        for(let j=1;j<datos.length;j++){
-            arrayMemoria.push(datos[j][i]);
-        }
-        respuesta.push(arrayMemoria);
-        arrayMemoria = [];
-    }
-
-    /* Conversion Normal a  Numeros */
-    respuesta[1] = convertirNumInt(respuesta[1]);
-    respuesta[6] = convertirNumInt(respuesta[6]);
-
-    /* Imprimiendo Respuestas ======================================================================================== */
-    const nums = document.getElementById("nums");
-    nums.innerHTML = "Respuestas Totales: "+(datos.length-1);
 
     console.log(pregunta);
     console.log(respuesta);

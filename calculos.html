@@ -19,7 +19,6 @@
 </script>
 
 <body>
-    <!-- Columnas y Filas de las Graficas -->
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo right">Encuesta</a>
@@ -30,15 +29,23 @@
             </ul>
         </div>
     </nav>
-    <br>
-    <div class="container">
+    <!-- Columnas y Filas de las Graficas -->
+    <div class="row">
         <div class="col s12">
             <h1 class="card-panel cyan darken-1 grey-text text-darken-3 center" id="nums"></h1>
         </div>
     </div>
-    <!-- Aqui Iran las Imagenes del formulario -->
 </body>
+
+<script>
+    const nums = document.getElementById("nums");
+    nums.innerHTML = "Respuestas Totales: "+(numrespuestas);
+</script>
 
 <!-- Materialize -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- MathJax -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 </html>
