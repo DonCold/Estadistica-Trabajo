@@ -80,7 +80,6 @@ function estanciarDatos(datos){
     }
 
     /* SEPARANDO DATOS==================================================================================================== */
-
     /* Separando respuestas de Hombre */
     for(let i=0; i<datos.length; i++){
         if(datos[i][0]=="Hombre"){
@@ -101,44 +100,53 @@ function estanciarDatos(datos){
     }
 
     /* Cada respuesta queda en un array Hombres */
-    arrayMemoria = [];
-    for(let i=0; i<datosHombres[0].length; i++){
-        for(let j=0;j<datosHombres.length;j++){
-            arrayMemoria.push(datosHombres[j][i]);
-        }
-        respuestaHombres.push(arrayMemoria);
+    if(datosHombres.length > 0){
         arrayMemoria = [];
+        for(let i=0; i<datosHombres[0].length; i++){
+            for(let j=0;j<datosHombres.length;j++){
+                arrayMemoria.push(datosHombres[j][i]);
+            }
+            respuestaHombres.push(arrayMemoria);
+            arrayMemoria = [];
+        }
+
+        respuestaHombres[1] = convertirNumInt(respuestaHombres[1]);
+        respuestaHombres[6] = convertirNumInt(respuestaHombres[6]);
     }
 
-    /* Cada respuesta queda en un array Mujeres */
-    arrayMemoria = [];
-    for(let i=0; i<datosMujeres[0].length; i++){
-        for(let j=0;j<datosMujeres.length;j++){
-            arrayMemoria.push(datosMujeres[j][i]);
-        }
-        respuestaMujeres.push(arrayMemoria);
+    if(datosMujeres.length > 0){
+        /* Cada respuesta queda en un array Mujeres */
         arrayMemoria = [];
+        for(let i=0; i<datosMujeres[0].length; i++){
+            for(let j=0;j<datosMujeres.length;j++){
+                arrayMemoria.push(datosMujeres[j][i]);
+            }
+            respuestaMujeres.push(arrayMemoria);
+            arrayMemoria = [];
+        }
+
+        respuestaMujeres[1] = convertirNumInt(respuestaMujeres[1]);
+        respuestaMujeres[6] = convertirNumInt(respuestaMujeres[6]);
     }
 
-    /* Cada respuesta queda en un array No Especifico */
-    arrayMemoria = [];
-    for(let i=0; i<datosNoespecifico[0].length; i++){
-        for(let j=0;j<datosNoespecifico.length;j++){
-            arrayMemoria.push(datosNoespecifico[j][i]);
-        }
-        respuestaNoespecifico.push(arrayMemoria);
+    if(datosNoespecifico.length > 0){
+        /* Cada respuesta queda en un array No Especifico */
         arrayMemoria = [];
+        for(let i=0; i<datosNoespecifico[0].length; i++){
+            for(let j=0;j<datosNoespecifico.length;j++){
+                arrayMemoria.push(datosNoespecifico[j][i]);
+            }
+            respuestaNoespecifico.push(arrayMemoria);
+            arrayMemoria = [];
+        }
+
+        respuestaNoespecifico[1] = convertirNumInt(respuestaNoespecifico[1]);
+        respuestaNoespecifico[6] = convertirNumInt(respuestaNoespecifico[6]);
     }
 
     /* Conversion Normal a  Numeros */
     respuesta[1] = convertirNumInt(respuesta[1]);
     respuesta[6] = convertirNumInt(respuesta[6]);
-    respuestaHombres[1] = convertirNumInt(respuestaHombres[1]);
-    respuestaHombres[6] = convertirNumInt(respuestaHombres[6]);
-    respuestaMujeres[1] = convertirNumInt(respuestaMujeres[1]);
-    respuestaMujeres[6] = convertirNumInt(respuestaMujeres[6]);
-    respuestaNoespecifico[1] = convertirNumInt(respuestaNoespecifico[1]);
-    respuestaNoespecifico[6] = convertirNumInt(respuestaNoespecifico[6]);
 
     console.log(respuestaHombres);
     console.log(respuestaMujeres);
