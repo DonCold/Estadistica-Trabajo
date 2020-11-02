@@ -1,8 +1,15 @@
 /* LATEX */
+Acalcular = true;
 
-function mediaAritmetica(ctx, datos){
+function calcular(){
+    console.log("Calculando");
+    mediaAritmetica("media", respuesta[1], "1");
+    mediaAritmetica("media1", respuesta[6], "2");
+}
+
+function mediaAritmetica(ctx, datos, num){
     let suma = 0;
-    let resultado = "$$ \\overline{x} = \\frac{";
+    let resultado = "$$ \\overline{x}_{"+num+"} = \\frac{";
     let final = "}  $$";
 
     for(let i=0;i<datos.length;i++){
@@ -16,7 +23,7 @@ function mediaAritmetica(ctx, datos){
     }
     suma = suma/datos.length;
     resultado += final;
-    resultado += "$$ \\overline{x} = ";
+    resultado += "$$ \\overline{x}_{"+num+"} = ";
     resultado += suma;
     resultado += "  $$";
 

@@ -2,7 +2,9 @@ let numrespuestas = 0;
 let pregunta = [];
 let respuesta = [];
 let respuestaEnNumeros = [];
+
 let Agraficar = false;
+let Acalcular = false;
 
 window.onload = function() {
     $.ajax({
@@ -65,11 +67,18 @@ function estanciarDatos(datos){
     respuesta[1] = convertirNumInt(respuesta[1]);
     respuesta[6] = convertirNumInt(respuesta[6]);
 
+    for(let i=0;i<respuesta.length;i++){
+        respuestaEnNumeros.push(convertirANumero(respuesta[i]));
+    }
+
     /* Imprimiendo Respuestas ======================================================================================== */
     const nums = document.getElementById("nums");
     nums.innerHTML = "Respuestas Totales: "+(numrespuestas);
 
     if(Agraficar){
         graficar();
+    }
+    if(Acalcular){
+        calcular();
     }
 }

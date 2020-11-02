@@ -11,6 +11,7 @@
 
 <script src="./src/load.js"></script>
 <script src="./src/conversion.js"></script>
+<script src="./src/mathjax.js"></script>
 
 <script>
     MathJax = {
@@ -34,13 +35,16 @@
         <div class="col s12">
             <h1 class="card-panel cyan darken-1 grey-text text-darken-3 center" id="nums"></h1>
         </div>
+        <div class="col s6">
+            <strong>Media o Promedio de Edades: </strong>
+            <div id="media"></div>
+        </div>
+        <div class="col s6">
+            <strong>Media o Promedio de la frecuencia de beber Alcohol, Bebidas Energizantes o Refrescos semanalmente: </strong>
+            <div id="media1"></div>
+        </div>
     </div>
 </body>
-
-<script>
-    const nums = document.getElementById("nums");
-    nums.innerHTML = "Respuestas Totales: "+(numrespuestas);
-</script>
 
 <!-- Materialize -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

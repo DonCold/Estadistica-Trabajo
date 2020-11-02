@@ -109,7 +109,7 @@ function opcionMultiple(ctx, tipo, titulo, datos){
                 }
            }
         }
-    } else{
+    } else {
         opcion = {
             responsive: true,
             title: {
