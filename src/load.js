@@ -44,6 +44,10 @@ function leerCsv(texto, separador = ",", omitirEncabezado=false) {
 }
 
 function estanciarDatos(datos){
+    let datosHombres = [];
+    let datosMujeres = [];
+    let datosNoespecifico = [];
+
     numrespuestas = datos.length-1;
 
     /* Limpia los datos, quita comillas dobles y dato no necesario */
@@ -71,9 +75,71 @@ function estanciarDatos(datos){
         arrayMemoria = [];
     }
 
+    /* SEPARANDO DATOS==================================================================================================== */
+
+    /* Separando respuestas de Hombre */
+    for(let i=0; i<datos.length; i++){
+        if(datos[i][0]=="Hombre"){
+            datosHombres.push(datos[i]);
+        }
+    }
+    /* Separando respuestas de Mujer */
+    for(let i=0; i<datos.length; i++){
+        if(datos[i][0]=="Mujer"){
+            datosMujeres.push(datos[i]);
+        }
+    }
+    /* Separando respuestas de No Especifico */
+    for(let i=0; i<datos.length; i++){
+        if(datos[i][0]=="Prefiero no decirlo"){
+            datosNoespecifico.push(datos[i]);
+        }
+    }
+
+    /* Cada respuesta queda en un array Hombres */
+    arrayMemoria = [];
+    for(let i=0; i<datosHombres[0].length; i++){
+        for(let j=0;j<datosHombres.length;j++){
+            arrayMemoria.push(datosHombres[j][i]);
+        }
+        respuestaHombres.push(arrayMemoria);
+        arrayMemoria = [];
+    }
+
+    /* Cada respuesta queda en un array Mujeres */
+    arrayMemoria = [];
+    for(let i=0; i<datosMujeres[0].length; i++){
+        for(let j=0;j<datosMujeres.length;j++){
+            arrayMemoria.push(datosMujeres[j][i]);
+        }
+        respuestaMujeres.push(arrayMemoria);
+        arrayMemoria = [];
+    }
+
+    /* Cada respuesta queda en un array No Especifico */
+    arrayMemoria = [];
+    for(let i=0; i<datosNoespecifico[0].length; i++){
+        for(let j=0;j<datosNoespecifico.length;j++){
+            arrayMemoria.push(datosNoespecifico[j][i]);
+        }
+        respuestaNoespecifico.push(arrayMemoria);
+        arrayMemoria = [];
+    }
+
     /* Conversion Normal a  Numeros */
     respuesta[1] = convertirNumInt(respuesta[1]);
     respuesta[6] = convertirNumInt(respuesta[6]);
+    respuestaHombres[1] = convertirNumInt(respuestaHombres[1]);
+    respuestaHombres[6] = convertirNumInt(respuestaHombres[6]);
+    respuestaMujeres[1] = convertirNumInt(respuestaMujeres[1]);
+    respuestaMujeres[6] = convertirNumInt(respuestaMujeres[6]);
+    respuestaNoespecifico[1] = convertirNumInt(respuestaNoespecifico[1]);
+    respuestaNoespecifico[6] = convertirNumInt(respuestaNoespecifico[6]);
+
+    console.log(respuestaHombres);
+    console.log(respuestaMujeres);
+    console.log(respuestaNoespecifico);
+    console.log("");
 
     for(let i=0;i<respuesta[0].length;i++){
         if(respuesta[0][i]=="Hombre"){
