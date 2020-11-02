@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="./src/jquery.js"></script>
+    <!-- ChartJs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Encuesta</title>
+</head>
+
+<script src="./src/load.js"></script>
+<script src="./src/conversion.js"></script>
+<script src="./src/grafica.js"></script>
+<script src="./src/colores.js"></script>
+<script src="./src/grafica/general.js"></script>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo right">Encuesta</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="index.html">Inicio</a></li>
+            <li><a href="general.html">Datos Generales</a></li>
+            <li><a href="hombres.html">Datos Hombres</a></li>
+            <li><a href="mujeres.html">Datos Mujeres</a></li>
+            <li><a href="noespecifico.html">Datos No Especificados</a></li>
+            <li><a href="calculos.html">Calculos</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Columnas y Filas de las Graficas -->
+    <div class="row">
+        <div class="col s12">
+            <h1 class="card-panel cyan darken-1 grey-text text-darken-3 center" id="nums"></h1>
+        </div>
+        <!-- Genero -->
+        <div class="col s6">
+            <canvas id="genero"></canvas>
+        </div>
+        <div class="col s6">
+            <canvas id="generoPor"></canvas>
+        </div>
+        <!-- Edad -->
+        <div class="col s6">
+            <canvas id="edad"></canvas>
+        </div>
+        <div class="col s6">
+            <canvas id="edadPor"></canvas>
+        </div>
+        <!-- Consideracion -->
+        <div class="col s6">
+            <canvas id="consideracion"></canvas>
+        </div>
+        <div class="col s6">
+            <canvas id="consideracionPor"></canvas>
+        </div>
+        <!-- Cantidad -->
+        <div class="col s6">
+            <canvas id="cantidad"></canvas>
+        </div>
+        <div class="col s6">
+            <canvas id="cantidadPor"></canvas>
+        </div>
+        <!-- Entre Comidas -->
+        <div class="col s6">
+            <canvas id="entreComidas"></canvas>
+        </div>
+        <div class="col s6">
+            <canvas id="entreComidasPor"></canvas>
+        </div>
+        <!-- Frecuencia Alimento -->
+        <div class="col s6">
+            <canvas id="frecuenciaAlimento"></canvas>
+        </div>
+        <div class="col s6">
+            <canvas id="frecuenciaAlimentoPor"></canvas>
+        </div>
+        <!-- Frecuencia Bebida -->
+        <div class="col s6">
+            <canvas id="frecuenciaBebida"></canvas>
+        </div>
+        <div class="col s6">
+            <canvas id="frecuenciaBebidaPor"></canvas>
+        </div>
+    </div>
+</body>
+
+<!-- Materialize -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

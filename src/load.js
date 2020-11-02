@@ -1,7 +1,15 @@
-let numrespuestas = 0;
+let numrespuestasTotales = 0;
+let numrespuestasHombres = 0;
+let numrespuestasMujeres = 0;
+let numNoespecificados = 0;
+
 let pregunta = [];
 let respuesta = [];
 let respuestaEnNumeros = [];
+
+let respuestaHombres = [];
+let respuestaMujeres = [];
+let respuestaNoespecifico = [];
 
 let Agraficar = false;
 let Acalcular = false;
@@ -67,18 +75,32 @@ function estanciarDatos(datos){
     respuesta[1] = convertirNumInt(respuesta[1]);
     respuesta[6] = convertirNumInt(respuesta[6]);
 
+    for(let i=0;i<respuesta[0].length;i++){
+        if(respuesta[0][i]=="Hombre"){
+            numrespuestasHombres++;
+        }
+        if(respuesta[0][i]=="Mujer"){
+            numrespuestasMujeres++;
+        }
+        if(respuesta[0][i]=="Prefiero no decirlo"){
+            numNoespecificados++;
+        }
+    }
+
     for(let i=0;i<respuesta.length;i++){
         respuestaEnNumeros.push(convertirANumero(respuesta[i]));
     }
 
     /* Imprimiendo Respuestas ======================================================================================== */
-    const nums = document.getElementById("nums");
-    nums.innerHTML = "Respuestas Totales: "+(numrespuestas);
 
     if(Agraficar){
         graficar();
-    }
-    if(Acalcular){
-        calcular();
+    }else{
+        if(Acalcular){
+            calcular();
+        }else{
+            const nums = document.getElementById("nums");
+            nums.innerHTML = "Respuestas Totales: "+(numrespuestas);
+        }
     }
 }
