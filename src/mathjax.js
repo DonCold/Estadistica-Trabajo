@@ -13,21 +13,31 @@ function calcular(){
 
     console.log(preguntaNumeros[0]);
     let txt = "";
-    /* for(let i=0;i<preguntaNumeros.length;i++){
-        for(let j=0;j<preguntaNumeros[i].length;j++){
-            txt += preguntaNumeros[i][j];
-            txt += "<br>";
-        }
-    } */
-    for(let i=0;i<preguntaNumeros[0].length;i++){
-        for(let j=0;j<preguntaNumeros[0][i].length;j++){
-            txt += preguntaNumeros[0][i][j];
-            txt += "<br>";
-        }
-    }
 
-    let numGen = document.getElementById("numGenero");
-    numGen .innerHTML = txt;
+    for(let i=0;i<preguntaNumeros[0][0].length;i++){
+        txt += "<tr><td><strong>"+preguntaNumeros[0][0][i]+"</strong></td><td>"+preguntaNumeros[0][1][i]+"</td></tr>";
+    }
+    agregarTabla("numGenero",txt);
+    agregarTabla("numAlimentacion",txt);
+    agregarTabla("numComidas",txt);
+    agregarTabla("numEntre",txt);
+    agregarTabla("numRapidas",txt);
+}
+
+function agregarTabla(ctx,num){
+    let txt = `<table class="centered">
+    <thead>
+      <tr>
+          <th>Numero</th>
+          <th>Nombre</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      `;
+
+    let body = document.getElementById(ctx);
+    body.innerHTML = txt+num+"</tbody></table>";
 }
 
 function mediaAritmetica(ctx, datos, num){
