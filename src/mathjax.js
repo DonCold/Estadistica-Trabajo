@@ -3,8 +3,13 @@ Acalcular = true;
 
 function calcular(){
     console.log("Calculando");
-    mediaAritmetica("media", respuesta[1], "1");
-    mediaAritmetica("media1", respuesta[6], "2");
+    mediaAritmetica("mediaGenero", respuestaEnNumeros[0], "1");
+    mediaAritmetica("mediaEdades", respuesta[1], "2");
+    mediaAritmetica("mediaAlimentacion", respuestaEnNumeros[2], "3");
+    mediaAritmetica("mediaCantidad", respuestaEnNumeros[3], "4");
+    mediaAritmetica("mediaEntre", respuestaEnNumeros[4], "5");
+    mediaAritmetica("mediaFrecuencia", respuestaEnNumeros[5], "6");
+    mediaAritmetica("mediaBeber", respuesta[6], "7");
 }
 
 function mediaAritmetica(ctx, datos, num){
