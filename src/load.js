@@ -11,12 +11,17 @@ let respuestaEnNumeros = [];
 let respuestaHombres = [];
 let respuestaMujeres = [];
 let respuestaNoespecifico = [];
+
 let respuestaHombresNumeros = [];
 let respuestaMujeresNumeros = [];
 let respuestaNoespecificoNumeros = [];
 
+let preguntaNumeros = [];
+
 let Agraficar = false;
 let Acalcular = false;
+
+/* ============================================================================================================================ */
 
 window.onload = function() {
     $.ajax({

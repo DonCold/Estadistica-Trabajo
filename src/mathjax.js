@@ -10,6 +10,24 @@ function calcular(){
     mediaAritmetica("mediaEntre", respuestaEnNumeros[4], "5");
     mediaAritmetica("mediaFrecuencia", respuestaEnNumeros[5], "6");
     mediaAritmetica("mediaBeber", respuesta[6], "7");
+
+    console.log(preguntaNumeros[0]);
+    let txt = "";
+    /* for(let i=0;i<preguntaNumeros.length;i++){
+        for(let j=0;j<preguntaNumeros[i].length;j++){
+            txt += preguntaNumeros[i][j];
+            txt += "<br>";
+        }
+    } */
+    for(let i=0;i<preguntaNumeros[0].length;i++){
+        for(let j=0;j<preguntaNumeros[0][i].length;j++){
+            txt += preguntaNumeros[0][i][j];
+            txt += "<br>";
+        }
+    }
+
+    let numGen = document.getElementById("numGenero");
+    numGen .innerHTML = txt;
 }
 
 function mediaAritmetica(ctx, datos, num){

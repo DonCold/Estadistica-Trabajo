@@ -6,6 +6,7 @@ function convertirNumInt(numeros){
     return numeros;
 }
 
+
 function convertirANumero(palabra){
     let numeros = [];
     if(typeof palabra[0] !== "number"){
@@ -22,6 +23,11 @@ function convertirANumero(palabra){
                 num++;
             }
         }
+
+        let vector = [];
+        vector.push(numArr);
+        vector.push(letraArr);
+        preguntaNumeros.push(vector);
 
         for(let i=0;i<palabra.length;i++){
             ind = letraArr.indexOf(palabra[i]);
