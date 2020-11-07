@@ -20,16 +20,22 @@
 </script>
 
 <body>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="calculos.html">Media</a></li>
+        <li><a href="#">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#">three</a></li>
+    </ul>
     <nav>
         <div class="nav-wrapper">
             <a href="index.html" class="brand-logo right">Encuesta</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="general.html">Datos Generales</a></li>
             <li><a href="hombres.html">Datos Hombres</a></li>
             <li><a href="mujeres.html">Datos Mujeres</a></li>
             <li><a href="noespecifico.html">Datos No Especificados</a></li>
-            <li><a href="calculos.html">Calculos</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Calculos</a></li>
             </ul>
         </div>
     </nav>
@@ -100,6 +106,12 @@
     </div>
     <hr>
 </body>
+
+<script>
+    $( document ).ready(function (){
+        $(".dropdown-trigger").dropdown();
+    })
+</script>
 
 <!-- Materialize -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
