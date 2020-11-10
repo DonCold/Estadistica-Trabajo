@@ -1,4 +1,11 @@
 /* LATEX */
+
+/* TODO
+- Media (A cada uno)
+- Moda  (A general)
+- Mediana (A general)
+ */
+
 Acalcular = true;
 
 function calcular(){

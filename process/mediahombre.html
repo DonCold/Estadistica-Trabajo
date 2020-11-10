@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../src/dependencia/jquery.js"></script>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Encuesta</title>
+</head>
+
+<script src="../src/load.js"></script>
+<script src="../src/conversion.js"></script>
+<script src="../src/mathjax.js"></script>
+
+<script>
+    window.onload = function() {
+        $.ajax({
+            url: "../Encuesta.csv",
+            dataType: "text",
+            contentType: "charset-utf-8",
+        }).done(ajustarDatos);
+    }
+
+    MathJax = {
+        loader: {load: ['input/asciimath', 'output/chtml']}
+    }
+</script>
+
+<body>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="mediageneral.html">Media General</a></li>
+        <li><a href="mediahombre.html">Media Hombres</a></li>
+        <li><a href="mediamujeres.html">Media Mujeres</a></li>
+        <li><a href="medianodecirlo.html">Media Prefiero No Decirlo</a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+        <li><a href="../general.html">Datos Generales</a></li>
+        <li><a href="../hombres.html">Datos Hombres</a></li>
+        <li><a href="../mujeres.html">Datos Mujeres</a></li>
+        <li><a href="../noespecifico.html">Datos No Especificados</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="../index.html" class="brand-logo right">Encuesta</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Graficas de los Datos<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Medias De los Datos Obtenidos<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="row">
+        <div class="col s6">
+            <strong>Para hacer calculos con el Genero le dimos a cada uno un numero:</strong>
+            <div class="container">
+                <div id="numGenero"></div>
+            </div>
+        </div>
+        <div class="col s6">
+            <strong>Para hacer calculos con la Alimentacion le dimos a cada uno un numero:</strong>
+            <div class="container">
+                <div id="numAlimentacion"></div>
+            </div>
+        </div>
+        <div class="col s6">
+            <strong>Para hacer calculos con las Comidas al Dia le dimos a cada uno un numero:</strong>
+            <div class="container">
+                <div id="numComidas"></div>
+            </div>
+        </div>
+        <div class="col s6">
+            <strong>Para hacer calculos con Comer entre Comidas le dimos a cada uno un numero:</strong>
+            <div class="container">
+                <div id="numEntre"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col s12 center">
+                <strong>Para hacer calculos con Comer Comidas Rapidas le dimos a cada uno un numero:</strong>
+                <div id="numRapidas"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Columnas y Filas de las Graficas -->
+    <hr>
+    <div class="row">
+        <div class="col s12 center">
+            <strong>Formula de la Media:</strong>
+            $$ \overline{x} = \frac{\sum_{i=1}^nX_i}{n} $$
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col s6">
+            <strong>Media o Promedio de Genero: </strong>
+            <div id="mediaGenero"></div>
+        </div>
+        <div class="col s6">
+            <strong>Media o Promedio de Edades: </strong>
+            <div id="mediaEdades"></div>
+        </div>
+        <div class="col s6">
+            <strong>Media o Promedio de Alimentacion: </strong>
+            <div id="mediaAlimentacion"></div>
+        </div>
+        <div class="col s6">
+            <strong>Media o Promedio de Comidas al Dia: </strong>
+            <div id="mediaCantidad"></div>
+        </div>
+        <div class="col s6">
+            <strong>Media o Promedio de Comer entre Comidas: </strong>
+            <div id="mediaEntre"></div>
+        </div>
+        <div class="col s6">
+            <strong>Media o Promedio de La frecuencia de comer comidas rapidas: </strong>
+            <div id="mediaFrecuencia"></div>
+        </div>
+        <div class="col s12 center">
+            <strong>Media o Promedio de la frecuencia de beber Alcohol, Bebidas Energizantes o Refrescos semanalmente: </strong>
+            <div id="mediaBeber"></div>
+        </div>
+    </div>
+    <hr>
+</body>
+
+<script>
+    $( document ).ready(function (){
+        $(".dropdown-trigger").dropdown();
+    })
+</script>
+
+<!-- Materialize -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- MathJax -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</html>

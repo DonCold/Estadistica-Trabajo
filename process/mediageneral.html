@@ -3,17 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="./src/dependencia/jquery.js"></script>
+    <script src="../src/dependencia/jquery.js"></script>
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Encuesta</title>
 </head>
 
-<script src="./src/load.js"></script>
-<script src="./src/conversion.js"></script>
-<script src="./src/mathjax.js"></script>
+<script src="../src/load.js"></script>
+<script src="../src/conversion.js"></script>
+<script src="../src/mathjax.js"></script>
 
 <script>
+    window.onload = function() {
+        $.ajax({
+            url: "../Encuesta.csv",
+            dataType: "text",
+            contentType: "charset-utf-8",
+        }).done(ajustarDatos);
+    }
+
     MathJax = {
         loader: {load: ['input/asciimath', 'output/chtml']}
     }
@@ -21,21 +30,24 @@
 
 <body>
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="calculos.html">Media</a></li>
-        <li><a href="#">two</a></li>
-        <li class="divider"></li>
-        <li><a href="#">three</a></li>
+        <li><a href="mediageneral.html">Media General</a></li>
+        <li><a href="mediahombre.html">Media Hombres</a></li>
+        <li><a href="mediamujeres.html">Media Mujeres</a></li>
+        <li><a href="medianodecirlo.html">Media Prefiero No Decirlo</a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+        <li><a href="../general.html">Datos Generales</a></li>
+        <li><a href="../hombres.html">Datos Hombres</a></li>
+        <li><a href="../mujeres.html">Datos Mujeres</a></li>
+        <li><a href="../noespecifico.html">Datos No Especificados</a></li>
     </ul>
     <nav>
         <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo right">Encuesta</a>
+            <a href="../index.html" class="brand-logo right">Encuesta</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="general.html">Datos Generales</a></li>
-            <li><a href="hombres.html">Datos Hombres</a></li>
-            <li><a href="mujeres.html">Datos Mujeres</a></li>
-            <li><a href="noespecifico.html">Datos No Especificados</a></li>
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Calculos</a></li>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Graficas de los Datos<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Medias De los Datos Obtenidos<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </div>
     </nav>
@@ -73,6 +85,13 @@
         </div>
     </div>
     <!-- Columnas y Filas de las Graficas -->
+    <hr>
+    <div class="row">
+        <div class="col s12 center">
+            <strong>Formula de la Media:</strong>
+            $$ \overline{x} = \frac{\sum_{i=1}^nX_i}{n} $$
+        </div>
+    </div>
     <hr>
     <div class="row">
         <div class="col s6">

@@ -6,6 +6,7 @@
     <script src="./src/dependencia/jquery.js"></script>
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Encuesta</title>
 </head>
 
@@ -20,21 +21,24 @@
 
 <body>
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="calculos.html">Media</a></li>
-        <li><a href="#">two</a></li>
-        <li class="divider"></li>
-        <li><a href="#">three</a></li>
+        <li><a href="process/mediageneral.html">Media General</a></li>
+        <li><a href="process/mediahombre.html">Media Hombres</a></li>
+        <li><a href="process/mediamujeres.html">Media Mujeres</a></li>
+        <li><a href="process/medianodecirlo.html">Media Prefiero No Decirlo</a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+        <li><a href="general.html">Datos Generales</a></li>
+        <li><a href="hombres.html">Datos Hombres</a></li>
+        <li><a href="mujeres.html">Datos Mujeres</a></li>
+        <li><a href="noespecifico.html">Datos No Especificados</a></li>
     </ul>
     <nav>
         <div class="nav-wrapper">
             <a href="index.html" class="brand-logo right">Encuesta</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="general.html">Datos Generales</a></li>
-            <li><a href="hombres.html">Datos Hombres</a></li>
-            <li><a href="mujeres.html">Datos Mujeres</a></li>
-            <li><a href="noespecifico.html">Datos No Especificados</a></li>
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Calculos</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Graficas de los Datos<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Medias De los Datos Obtenidos<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </div>
     </nav>
