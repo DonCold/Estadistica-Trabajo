@@ -13,7 +13,7 @@
 <script src="../src/load.js"></script>
 <script src="../src/conversion.js"></script>
 <script src="../src/mathjax.js"></script>
-<script src="../src/process/medianodecirlo.js"></script>
+<script src="../src/process/moda.js"></script>
 
 <script>
     window.onload = function() {
@@ -58,6 +58,12 @@
     <br>
     <div class="row">
         <div class="col s6">
+            <strong>Para hacer calculos con el Genero le dimos a cada uno un numero:</strong>
+            <div class="container">
+                <div id="numGenero"></div>
+            </div>
+        </div>
+        <div class="col s6">
             <strong>Para hacer calculos con la Alimentacion le dimos a cada uno un numero:</strong>
             <div class="container">
                 <div id="numAlimentacion"></div>
@@ -75,9 +81,9 @@
                 <div id="numEntre"></div>
             </div>
         </div>
-        <div class="col s6">
-            <strong>Para hacer calculos con Comer Comidas Rapidas le dimos a cada uno un numero:</strong>
-            <div class="container">
+        <div class="container">
+            <div class="col s12 center">
+                <strong>Para hacer calculos con Comer Comidas Rapidas le dimos a cada uno un numero:</strong>
                 <div id="numRapidas"></div>
             </div>
         </div>
@@ -92,6 +98,10 @@
     </div>
     <hr>
     <div class="row">
+        <div class="col s6">
+            <strong>Media o Promedio de Genero: </strong>
+            <div id="mediaGenero"></div>
+        </div>
         <div class="col s6">
             <strong>Media o Promedio de Edades: </strong>
             <div id="mediaEdades"></div>
@@ -112,7 +122,7 @@
             <strong>Media o Promedio de La frecuencia de comer comidas rapidas: </strong>
             <div id="mediaFrecuencia"></div>
         </div>
-        <div class="col s6">
+        <div class="col s12 center">
             <strong>Media o Promedio de la frecuencia de beber Alcohol, Bebidas Energizantes o Refrescos semanalmente: </strong>
             <div id="mediaBeber"></div>
         </div>

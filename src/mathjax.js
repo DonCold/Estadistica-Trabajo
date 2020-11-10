@@ -51,3 +51,37 @@ function mediaAritmetica(ctx, datos, num){
     math.innerHTML = resultado;
 }
 
+function medianaAritmetica(ctx, datos, num){
+    let resultado = "$$ {Me}_{"+num+"} = {";
+    let final = "}  $$";
+    datos.sort();
+
+    function comparar ( a, b ){ return a - b; }
+    datos.sort( comparar );
+
+    for(let i=0;i<datos.length;i++){
+        resultado += datos[i].toString();
+        if(i<datos.length-1){
+            resultado += ",";
+        }
+    }
+    resultado += final;
+    if((datos.length % 2)==0){
+        res = datos.length/2;
+        resultado +="$$ {Me}_{"+num+"} = \\frac{"+datos[res-1]+"+"+datos[res]+"}{2} $$";
+        res = (datos[res-1]+datos[res])/2;
+        res = parseInt(res);
+
+        resultado += "$$ {Me}_{"+num+"} = ";
+        resultado += res;
+        resultado += "  $$";
+    }else{
+        res = datos.length/2;
+        resultado += "$$ {Me}_{"+num+"} = ";
+        resultado += datos[res-1];
+        resultado += "  $$";
+    }
+
+    const math = document.getElementById(ctx);
+    math.innerHTML = resultado;
+}
