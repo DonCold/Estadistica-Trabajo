@@ -101,6 +101,21 @@ function modaAritmetica(ctx, datos){
     for(let i=0; i<opciones.length; i++){
         resultado += "<strong>"+opciones[i]+"</strong>: "+eleccion[i]+"&nbsp&nbsp&nbsp&nbsp&nbsp";
     }
+
+    let numMayor = -1;
+    for(let i=0; i<opciones.length; i++){
+        if(numMayor < eleccion[i]){
+            numMayor = eleccion[i];
+        }
+    }
+
+    resultado += "<br><br><strong>Mo = </strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+    for(let i=0; i<opciones.length; i++){
+        if(eleccion[i]==numMayor){
+            resultado += "<strong>"+opciones[i]+"</strong>: "+eleccion[i]+"&nbsp&nbsp&nbsp&nbsp";
+        }
+    }
+
     resultado +="<br><br><br><br>";
 
     const math = document.getElementById(ctx);
