@@ -106,3 +106,21 @@ function modaAritmetica(ctx, datos){
     const math = document.getElementById(ctx);
     math.innerHTML = resultado;
 }
+
+function probabilidadBasica(ctx, favorables, totales, subbajo){
+    let resultado = "$$ P_{"+subbajo+"} = \\frac{"+favorables+"}{"+totales;
+    let final = "}  $$";
+
+    res = favorables/totales;
+    res = Math.round(res*10000)/10000;
+    resultado += final;
+    resultado += "$$ P_{"+subbajo+"} = "+res+" $$";
+
+    res = res*100;
+    res = Math.round(res*100)/100;
+    resultado += "$$ P_{"+subbajo+"} = "+res+"\\% $$";
+
+
+    const math = document.getElementById(ctx);
+    math.innerHTML = resultado;
+}
