@@ -1,28 +1,3 @@
-/* LATEX */
-
-/* TODO
-
-- Probabilidad de comer mas de 4 veces al dia
-
-TODO
-
-let respuesta = [];
-let respuestaEnNumeros = [];
-
-let respuestaHombres = [];
-let respuestaMujeres = [];
-let respuestaNoespecifico = [];
-
-let respuestaHombresNumeros = [];
-let respuestaMujeresNumeros = [];
-let respuestaNoespecificoNumeros = [];
-
-let preguntaNumeros = [];
-
-TODO
-
- */
-
 function calcular(){
     console.log("Calculando");
 
@@ -32,6 +7,7 @@ function calcular(){
     modoComerProb(respuesta[2], "Sano", "Gsano", "probabilidad4");
     modoComerProb(respuesta[2], "Intermedio", "Isano", "probabilidad5");
     modoComerProb(respuesta[2], "No sano", "Nsano", "probabilidad6");
+    modoComerProb(respuesta[3], "4 o mas veces al día.", "Cc", "probabilidad7");
 }
 
 function obtenerDatoProb(datos, subbajo, ctx){
