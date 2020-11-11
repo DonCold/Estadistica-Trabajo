@@ -1,14 +1,3 @@
-/* LATEX */
-
-/* TODO
-- Media (A cada uno)
-- Moda  (A general)
-- Mediana (A general)
-- (H,M,O Probabilidad de cuantas veces suele comer comida rapida a la semana)
-- (H,M,O Probabilidad de  coma x veces al dia)
-- (H,M,O Probabilidad de comer sano,normal, no sano)
- */
-
 Acalcular = true;
 
 function agregarTabla(ctx,num){
@@ -81,6 +70,38 @@ function medianaAritmetica(ctx, datos, num){
         resultado += datos[res-1];
         resultado += "  $$";
     }
+
+    const math = document.getElementById(ctx);
+    math.innerHTML = resultado;
+}
+
+function modaAritmetica(ctx, datos){
+    var opciones = [];
+    var eleccion = [];
+
+    /* Creamos 2 listas los datos no repetidos */
+    for(let i=0;i<datos.length;i++){
+        if(opciones.indexOf(datos[i]) == -1){
+            opciones.push(datos[i]);
+            eleccion.push(0);
+        }
+    }
+    opciones = opciones.sort();
+
+    /* Aumentamos la suma de cada posicion para mirar los datos que se repiten */
+    for(let i=0;i<datos.length;i++){
+        if(opciones.indexOf(datos[i]) != -1){
+            eleccion[opciones.indexOf(datos[i])]++;
+        }
+    }
+
+    /* {Mo}_{"+num+"} =  */
+
+    let resultado = "<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+    for(let i=0; i<opciones.length; i++){
+        resultado += "<strong>"+opciones[i]+"</strong>: "+eleccion[i]+"&nbsp&nbsp&nbsp&nbsp&nbsp";
+    }
+    resultado +="<br><br><br><br>";
 
     const math = document.getElementById(ctx);
     math.innerHTML = resultado;
