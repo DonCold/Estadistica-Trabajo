@@ -1,13 +1,21 @@
 function calcular(){
     console.log("Calculando");
 
-    obtenerDatoProb(respuestaHombres[1], "HEdad", "probabilidad1");
-    obtenerDatoProb(respuestaMujeres[1], "MEdad", "probabilidad2");
-    obtenerDatoProb(respuestaNoespecifico[1], "PEdad", "probabilidad3");
-    modoComerProb(respuesta[2], "Sano", "Gsano", "probabilidad4");
-    modoComerProb(respuesta[2], "Intermedio", "Isano", "probabilidad5");
-    modoComerProb(respuesta[2], "No sano", "Nsano", "probabilidad6");
-    modoComerProb(respuesta[3], "4 o mas veces al día.", "Cc", "probabilidad7");
+    if(respuestaHombres.length>0){
+        obtenerDatoProb(respuestaHombres[1], "HEdad", "probabilidad1");
+    }
+    if(respuestaMujeres.length>0){
+        obtenerDatoProb(respuestaMujeres[1], "MEdad", "probabilidad2");
+    }
+    if(respuestaNoespecifico.length>0){
+        obtenerDatoProb(respuestaNoespecifico[1], "PEdad", "probabilidad3");
+    }
+    if(respuesta.length>0){
+        modoComerProb(respuesta[2], "Sano", "Gsano", "probabilidad4");
+        modoComerProb(respuesta[2], "Intermedio", "Isano", "probabilidad5");
+        modoComerProb(respuesta[2], "No sano", "Nsano", "probabilidad6");
+        modoComerProb(respuesta[3], "4 o mas veces al día.", "Cc", "probabilidad7");
+    }
 }
 
 function obtenerDatoProb(datos, subbajo, ctx){
