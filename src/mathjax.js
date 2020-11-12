@@ -55,6 +55,7 @@ function medianaAritmetica(ctx, datos, num){
         }
     }
     resultado += final;
+
     if((datos.length % 2)==0){
         res = datos.length/2;
         resultado +="$$ {Me}_{"+num+"} = \\frac{"+datos[res-1]+"+"+datos[res]+"}{2} $$";
@@ -66,8 +67,9 @@ function medianaAritmetica(ctx, datos, num){
         resultado += "  $$";
     }else{
         res = datos.length/2;
+        res = parseInt(res);
         resultado += "$$ {Me}_{"+num+"} = ";
-        resultado += datos[res-1];
+        resultado += datos[res];
         resultado += "  $$";
     }
 
