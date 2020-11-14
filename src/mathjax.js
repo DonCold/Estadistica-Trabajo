@@ -99,7 +99,7 @@ function modaAritmetica(ctx, datos){
 
     /* {Mo}_{"+num+"} =  */
 
-    let resultado = "<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+    let resultado = "<br>";
     for(let i=0; i<opciones.length; i++){
         resultado += "<strong>"+opciones[i]+"</strong>: "+eleccion[i]+"&nbsp&nbsp&nbsp&nbsp&nbsp";
     }
