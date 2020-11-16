@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../src/dependencia/jquery.js"></script>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <title>Encuesta</title>
+</head>
+
+<script src="../src/load.js"></script>
+<script src="../src/conversion.js"></script>
+<script src="../src/mathjax.js"></script>
+<script src="../src/process/probabilidad.js"></script>
+
+<script>
+    window.onload = function() {
+        $.ajax({
+            url: "../Encuesta.csv",
+            dataType: "text",
+            contentType: "charset-utf-8",
+        }).done(ajustarDatos);
+    }
+
+    MathJax = {
+        loader: {load: ['input/asciimath', 'output/chtml']}
+    }
+</script>
+
+<body>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="mediageneral.html">Media General</a></li>
+        <li><a href="mediahombre.html">Media Hombres</a></li>
+        <li><a href="mediamujeres.html">Media Mujeres</a></li>
+        <li><a href="medianodecirlo.html">Media Prefiero No Decirlo</a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+        <li><a href="../general.html">Datos Generales</a></li>
+        <li><a href="../hombres.html">Datos Hombres</a></li>
+        <li><a href="../mujeres.html">Datos Mujeres</a></li>
+        <li><a href="../noespecifico.html">Datos No Especificados</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="../index.html" class="brand-logo right">Encuesta</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Graficas de los Datos<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Medias De los Datos Obtenidos<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="mediana.html">Mediana</a></li>
+                <li><a href="moda.html">Moda</a></li>
+                <li><a href="probabilidades.html">Probabilidad</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <hr>
+    <div class="row">
+        <div class="col s12 center">
+            <strong>Formula de probabilidad:</strong><br>
+            $$ P = \frac{Casos Favorables}{Casos Totales} $$
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col s1">
+        </div>
+        <div class="col s11">
+            <div class="col s6">
+                Probabilidad de que un Hombre sea mayor a 22 años:
+                <div id="probabilidad1"></div>
+            </div>
+            <div class="col s6">
+                Probabilidad de que una Mujer sea mayor a 22 años:
+                <div id="probabilidad2"></div>
+            </div>
+            <div class="col s6">
+                Probabilidad de genero no Especificado sea mayor a 22 años:
+                <div id="probabilidad3"></div>
+            </div>
+            <div class="col s6">
+                Probabilidad de que una persona coma de forma sana:
+                <div id="probabilidad4"></div>
+            </div>
+            <div class="col s6">
+                Probabilidad de que una persona coma de forma intermedia:
+                <div id="probabilidad5"></div>
+            </div>
+            <div class="col s6">
+                Probabilidad de que una persona coma de forma no sana:
+                <div id="probabilidad6"></div>
+            </div>
+            <div class="col s12 center">
+                Probabilidad de que una persona coma 4 o mas veces al día:
+                <div id="probabilidad7"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $( document ).ready(function (){
+        $(".dropdown-trigger").dropdown();
+    })
+</script>
+
+<!-- Materialize -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- MathJax -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</html>
