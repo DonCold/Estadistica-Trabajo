@@ -30,7 +30,10 @@ function mediaAritmetica(ctx, datos, num){
             resultado += "}{"+datos.length;
         }
     }
+
     suma = suma/datos.length;
+    suma = Math.round(suma*100000)/100000;
+
     resultado += final;
     resultado += "$$ \\overline{x}_{"+num+"} = ";
     resultado += suma;
@@ -97,8 +100,6 @@ function modaAritmetica(ctx, datos){
         }
     }
 
-    /* {Mo}_{"+num+"} =  */
-
     let resultado = "<br>";
     for(let i=0; i<opciones.length; i++){
         resultado += "<strong>"+opciones[i]+"</strong>: "+eleccion[i]+"&nbsp&nbsp&nbsp&nbsp&nbsp";
@@ -143,18 +144,33 @@ function probabilidadBasica(ctx, favorables, totales, subbajo){
 }
 
 function varianza(ctx, subbajo, media, N, datos){
-    let resultado = "$$ V_{"+subbajo+"} = ";
+    let resultado = "$$ \\sigma^{2}_{"+subbajo+"} = ";
+    resultado += "\\frac{";
     let varianza = 0;
+    media = Math.round(media*100)/100;
 
-    for(let i=0;i<datos.length;i++){
+    for(let i=0;i<N;i++){
         varianza += Math.pow((datos[i] - media), 2);
+        resultado += "("+datos[i]+"-"+media+")^{2}";
+        if(i<datos.length-1){
+            resultado += "+";
+        }
     }
+    resultado += "}{"+N+"} $$ $$";
 
-    varianza = varianza/datos.length;
+    varianza = varianza/N
+    varianza = Math.round(varianza*100000)/100000;
+
     console.log(varianza);
     console.log(media);
 
-    resultado += "$$";
+    resultado += "\\sigma^{2}_{"+subbajo+"} = "+varianza+"$$";
+    resultado += "$$ \\sqrt{\\sigma^{2}_{"+subbajo+"}} = \\sqrt{"+varianza+"} $$";
+
+    varianza = Math.sqrt(varianza);
+    varianza = Math.round(varianza*100000)/100000;
+    resultado += "$$ \\sigma_{"+subbajo+"} = "+varianza+" $$";
+
     const math = document.getElementById(ctx);
     math.innerHTML = resultado;
 }
