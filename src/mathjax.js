@@ -141,3 +141,20 @@ function probabilidadBasica(ctx, favorables, totales, subbajo){
     const math = document.getElementById(ctx);
     math.innerHTML = resultado;
 }
+
+function varianza(ctx, subbajo, media, N, datos){
+    let resultado = "$$ V_{"+subbajo+"} = ";
+    let varianza = 0;
+
+    for(let i=0;i<datos.length;i++){
+        varianza += Math.pow((datos[i] - media), 2);
+    }
+
+    varianza = varianza/datos.length;
+    console.log(varianza);
+    console.log(media);
+
+    resultado += "$$";
+    const math = document.getElementById(ctx);
+    math.innerHTML = resultado;
+}

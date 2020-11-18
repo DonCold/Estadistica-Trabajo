@@ -14,7 +14,7 @@
 <script src="../src/load.js"></script>
 <script src="../src/conversion.js"></script>
 <script src="../src/mathjax.js"></script>
-<script src="../src/process/probabilidad.js"></script>
+<script src="../src/process/varianza.js"></script>
 
 <script>
     window.onload = function() {
@@ -62,7 +62,7 @@
     <div class="row">
         <div class="col s12 center">
             <strong>Formula de probabilidad:</strong><br>
-            $$ P = \frac{Casos Favorables}{Casos Totales} $$
+            $$ \sigma^{2} = \frac{\sum_1^N(x_{i}-\overline{X})^{2}}{N} $$
         </div>
     </div>
     <hr>
@@ -71,32 +71,32 @@
         </div>
         <div class="col s11">
             <div class="col s6">
-                Probabilidad de que un Hombre sea mayor a 22 años:
-                <div id="probabilidad1"></div>
+                Varianza de Genero:
+                <div id="varianza1"></div>
             </div>
             <div class="col s6">
-                Probabilidad de que una Mujer sea mayor a 22 años:
-                <div id="probabilidad2"></div>
+                Varianza de Edades:
+                <div id="varianza2"></div>
             </div>
             <div class="col s6">
-                Probabilidad de genero no Especificado sea mayor a 22 años:
-                <div id="probabilidad3"></div>
+                Varianza de Alimentacion:
+                <div id="varianza3"></div>
             </div>
             <div class="col s6">
-                Probabilidad de que una persona coma de forma sana:
-                <div id="probabilidad4"></div>
+                Varianza de Comidas al Dia:
+                <div id="varianza4"></div>
             </div>
             <div class="col s6">
-                Probabilidad de que una persona coma de forma intermedia:
-                <div id="probabilidad5"></div>
+                Varianza de Comer entre Comidas:
+                <div id="varianza5"></div>
             </div>
             <div class="col s6">
-                Probabilidad de que una persona coma de forma no sana:
-                <div id="probabilidad6"></div>
+                Varianza de la Frecuencia de Comer comidas rapidas:
+                <div id="varianza6"></div>
             </div>
             <div class="col s12 center">
-                Probabilidad de que una persona coma 4 o mas veces al día:
-                <div id="probabilidad7"></div>
+                Varianza de la frecuencia de beber Alcohol, Bebidas Energizantes o Refrescos:
+                <div id="varianza7"></div>
             </div>
         </div>
     </div>
