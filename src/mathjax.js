@@ -149,14 +149,25 @@ function varianza(ctx, subbajo, media, N, datos){
     let varianza = 0;
     media = Math.round(media*100)/100;
 
+    saltoDeLinea = 0;
     for(let i=0;i<N;i++){
         varianza += Math.pow((datos[i] - media), 2);
-        resultado += "("+datos[i]+"-"+media+")^{2}";
-        if(i<datos.length-1){
+        if(saltoDeLinea<10){
+            saltoDeLinea++;
+            resultado += "("+datos[i]+"-"+media+")^{2}";
+            if(i<datos.length-1){
+                resultado += "+";
+            }
+        }else{
+            saltoDeLinea = 0;
+            resultado += "}{"+N+"} $$ $$";
+            resultado += "\\frac{";
+            resultado += "("+datos[i]+"-"+media+")^{2}";
             resultado += "+";
         }
     }
-    resultado += "}{"+N+"} $$ $$";
+
+    resultado += "}{"+N+"} $$";
 
     varianza = varianza/N
     varianza = Math.round(varianza*100000)/100000;
@@ -164,12 +175,13 @@ function varianza(ctx, subbajo, media, N, datos){
     console.log(varianza);
     console.log(media);
 
-    resultado += "\\sigma^{2}_{"+subbajo+"} = "+varianza+"$$";
+    resultado += "<br>";
+    resultado += "$$ \\sigma^{2}_{"+subbajo+"} = "+varianza+"$$";
     resultado += "$$ \\sqrt{\\sigma^{2}_{"+subbajo+"}} = \\sqrt{"+varianza+"} $$";
 
     varianza = Math.sqrt(varianza);
     varianza = Math.round(varianza*100000)/100000;
-    resultado += "$$ \\sigma_{"+subbajo+"} = "+varianza+" $$";
+    resultado += "$$ \\sigma_{"+subbajo+"} = "+varianza+" $$ <br><br>";
 
     const math = document.getElementById(ctx);
     math.innerHTML = resultado;
