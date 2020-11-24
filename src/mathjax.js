@@ -112,14 +112,14 @@ function modaAritmetica(ctx, datos){
         }
     }
 
-    resultado += "<br><br><strong>Mo = </strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+    resultado += "<br><br><div style='border-style: dashed;'><strong>Mo = </strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
     for(let i=0; i<opciones.length; i++){
         if(eleccion[i]==numMayor){
             resultado += "<strong>"+opciones[i]+"</strong>: "+eleccion[i]+"&nbsp&nbsp&nbsp&nbsp";
         }
     }
 
-    resultado +="<br><br><br><br>";
+    resultado +="</div><br><br><br><br>";
 
     const math = document.getElementById(ctx);
     math.innerHTML = resultado;
