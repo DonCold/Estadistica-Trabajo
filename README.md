@@ -1,5 +1,5 @@
 # Graficas con ChartJS
-![Captura](https://github.com/LuisFOsG/graficas-chartjs/blob/master/src/wallpaper.png)
+![Captura](https://github.com/LuisFOsG/Estadistica-Trabajo/blob/master/src/wallpaper.png)
 
 ## Incluye
 - Materialize
